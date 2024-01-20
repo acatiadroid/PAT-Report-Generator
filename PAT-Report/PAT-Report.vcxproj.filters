@@ -13,20 +13,26 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Interfaces">
+      <UniqueIdentifier>{e8a94dba-69b3-4eb0-90ef-286d7604056b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Interfaces">
+      <UniqueIdentifier>{b247d90d-e054-4742-8648-8922c92ed1be}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
+    <ClCompile Include="App.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Window.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="MainFrame.cpp">
+      <Filter>Source Files\Interfaces</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Window.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="MainFrame.h">
+      <Filter>Header Files\Interfaces</Filter>
     </ClInclude>
-    <ClInclude Include="Main.h">
+    <ClInclude Include="App.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
