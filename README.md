@@ -1,1 +1,1 @@
-WIP system for generating PAT reports in C++.
+WIP system for generating PAT (Portable Appliance Testing) reports in C++.
