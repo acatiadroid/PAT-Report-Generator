@@ -139,13 +139,15 @@
     <ClCompile Include="App.cpp" />
     <ClCompile Include="CreateReportFrame.cpp" />
     <ClCompile Include="MainFrame.cpp" />
-    <ClCompile Include="XmlParser.cpp" />
+    <ClCompile Include="XmlFileIndexParser.cpp" />
+    <ClCompile Include="XmlReportParser.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
     <ClInclude Include="CreateReportFrame.h" />
     <ClInclude Include="MainFrame.h" />
-    <ClInclude Include="XmlParser.h" />
+    <ClInclude Include="XmlFileIndexParser.h" />
+    <ClInclude Include="XmlReportParser.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />
