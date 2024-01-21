@@ -8,10 +8,13 @@ class MainFrame : public wxFrame {
 public:
 	MainFrame(const wxString& title, const wxPoint& pos, const wxSize& size);
 
+	void OnClose(wxCloseEvent& event);
 	void OnButtonClicked(wxCommandEvent& event);
 
 private:
-	wxButton* m_button;
+	wxButton* btnCreateNewReport;
+	wxButton* btnOpenExistingReport;
+
 	wxDECLARE_EVENT_TABLE();
 };
 

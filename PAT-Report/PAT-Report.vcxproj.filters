@@ -27,6 +27,9 @@
     <ClCompile Include="MainFrame.cpp">
       <Filter>Source Files\Interfaces</Filter>
     </ClCompile>
+    <ClCompile Include="CreateNewReport.cpp">
+      <Filter>Source Files\Interfaces</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainFrame.h">
@@ -35,5 +38,11 @@
     <ClInclude Include="App.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CreateReportFrame.h">
+      <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>
