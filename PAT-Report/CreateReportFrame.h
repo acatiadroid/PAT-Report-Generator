@@ -8,8 +8,7 @@ public:
 	CreateReportFrame(const wxString& title, const wxPoint& pos, const wxSize& size);
 
 	void OnClose(wxCloseEvent& event);
-	void OnTextCtrlFocus(wxFocusEvent& event);
-	void SaveNewReport(wxCommandEvent& event);
+	void OnSubmitButtonClick(wxCommandEvent& event);
 
 private:
 	wxStaticText* lblName;
@@ -21,7 +20,14 @@ private:
 	wxStaticText* lblDate;
 
 	wxTextCtrl* txtName;
-	wxTextCtrl* txtCustomer;
+	wxTextCtrl* txtCompany;
+	wxTextCtrl* txtAddress;
+	wxTextCtrl* txtPostcode;
+	wxTextCtrl* txtPhone;
+	wxTextCtrl* txtEmail;
+	wxTextCtrl* txtDate;
+
+	wxButton* btnSubmit;
 
 	wxDECLARE_EVENT_TABLE();
 };

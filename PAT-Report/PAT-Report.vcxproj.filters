@@ -19,6 +19,12 @@
     <Filter Include="Source Files\Interfaces">
       <UniqueIdentifier>{b247d90d-e054-4742-8648-8922c92ed1be}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\XmlParser">
+      <UniqueIdentifier>{ddc26b16-7c70-4502-b902-0d9205c9e350}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\XmlParser">
+      <UniqueIdentifier>{4cdb2f7a-6662-4fa1-9b3b-bb05578b6805}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="App.cpp">
@@ -30,6 +36,9 @@
     <ClCompile Include="CreateReportFrame.cpp">
       <Filter>Source Files\Interfaces</Filter>
     </ClCompile>
+    <ClCompile Include="XmlParser.cpp">
+      <Filter>Source Files\XmlParser</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainFrame.h">
@@ -40,6 +49,9 @@
     </ClInclude>
     <ClInclude Include="CreateReportFrame.h">
       <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlParser.h">
+      <Filter>Header Files\XmlParser</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
