@@ -27,7 +27,7 @@
     <ClCompile Include="MainFrame.cpp">
       <Filter>Source Files\Interfaces</Filter>
     </ClCompile>
-    <ClCompile Include="CreateNewReport.cpp">
+    <ClCompile Include="CreateReportFrame.cpp">
       <Filter>Source Files\Interfaces</Filter>
     </ClCompile>
   </ItemGroup>
