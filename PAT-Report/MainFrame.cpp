@@ -21,7 +21,7 @@ void MainFrame::OnClose(wxCloseEvent& event) {
 
 }
 void MainFrame::OnButtonClicked(wxCommandEvent& event) {
-	CreateReportFrame* frame = new CreateReportFrame("Create new report", wxPoint(50, 50), wxSize(340, 300));
+	CreateReportFrame* frame = new CreateReportFrame("Create new report", wxPoint(50, 50), wxSize(340, 340));
 	frame->Show(true);
 	this->Show(false);
 }

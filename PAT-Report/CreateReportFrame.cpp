@@ -1,4 +1,5 @@
 #include "CreateReportFrame.h"
+#include "XmlFileIndexParser.h"
 
 #include <wx/msgdlg.h>
 
@@ -65,13 +66,13 @@ CreateReportFrame::CreateReportFrame(const wxString& title, const wxPoint& pos, 
 	rowSizer7->Add(lblDate, 0, wxALIGN_CENTER_VERTICAL | wxALL, 5);
 	rowSizer7->Add(txtDate, 1, wxEXPAND | wxALL, 5);
 
-	mainSizer->Add(rowSizer1, 0, wxEXPAND | wxALL, 3);
-	mainSizer->Add(rowSizer2, 0, wxEXPAND | wxALL, 3);
-	mainSizer->Add(rowSizer3, 0, wxEXPAND | wxALL, 3);
-	mainSizer->Add(rowSizer4, 0, wxEXPAND | wxALL, 3);
-	mainSizer->Add(rowSizer5, 0, wxEXPAND | wxALL, 3);
-	mainSizer->Add(rowSizer6, 0, wxEXPAND | wxALL, 3);
-	mainSizer->Add(rowSizer7, 0, wxEXPAND | wxALL, 3);
+	mainSizer->Add(rowSizer1, 0, wxEXPAND | wxALL, 5);
+	mainSizer->Add(rowSizer2, 0, wxEXPAND | wxALL, 5);
+	mainSizer->Add(rowSizer3, 0, wxEXPAND | wxALL, 5);
+	mainSizer->Add(rowSizer4, 0, wxEXPAND | wxALL, 5);
+	mainSizer->Add(rowSizer5, 0, wxEXPAND | wxALL, 5);
+	mainSizer->Add(rowSizer6, 0, wxEXPAND | wxALL, 5);
+	mainSizer->Add(rowSizer7, 0, wxEXPAND | wxALL, 5);
 	mainSizer->Add(btnSubmit, 0, wxALIGN_CENTER | wxALL, 10);
 
 	SetSizer(mainSizer);
@@ -83,7 +84,6 @@ void CreateReportFrame::OnClose(wxCloseEvent& event) {
 }
 
 void CreateReportFrame::OnSubmitButtonClick(wxCommandEvent& event) {
-	wxString text = txtName->GetValue();
-	wxMessageBox("Name is " + text, "Message", wxOK | wxICON_INFORMATION);
+	createNewFileIndexEntry();
 }
 
