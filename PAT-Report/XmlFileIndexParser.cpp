@@ -4,7 +4,24 @@
 #include <string>
 #include <random>
 #include <iostream>
-using namespace tinyxml2;
+
+const char* FILE_PATH = "C:/Users/quzon/Documents/C++/PAT Report Generator/Data/FileIndex.xml";
+
+void createNewFileIndex() {
+	tinyxml2::XMLDocument doc;
+
+	tinyxml2::XMLElement* root = doc.NewElement("FileIndex");
+	doc.InsertFirstChild(root);
+
+	tinyxml2::XMLElement* element = doc.NewElement("Test");
+	element->SetText("etst");
+
+	root->InsertEndChild(element);
+
+	if (doc.SaveFile(FILE_PATH) == tinyxml2::XML_SUCCESS) {
+		// don't need to do anything
+	}
+};
 
 int generateIndexID() {
 	std::random_device device;
@@ -13,23 +30,51 @@ int generateIndexID() {
 
 	return dist6(rng);
 };
-// int indexID, std::string fileName
-void createNewFileIndexEntry() {
-	XMLDocument doc;
 
-	XMLElement* root = doc.NewElement("RootElement");
-	doc.InsertFirstChild(root);
+bool checkFileIndexExists() {
+	tinyxml2::XMLDocument doc;
 
-	XMLElement* element = doc.NewElement("TestElement");
-	element->SetAttribute("TestAttr", 1.0);
-	element->SetText("Something random");
-
-	root->InsertEndChild(element);
-
-	if (doc.SaveFile("C:\\Users\\lukeh\\Documents\\c++\\PAT-Report") == XML_SUCCESS) {
-		std::cout << "Saved file";
+	if (doc.LoadFile(FILE_PATH) == tinyxml2::XML_SUCCESS) {
+		return true;
 	}
 	else {
-		std::cout << "File not saved.";
+		tinyxml2::XMLDocument doc;
+		tinyxml2::XMLElement* root = doc.NewElement("FileIndex");
+		doc.InsertFirstChild(root);
+
+		if (doc.LoadFile(FILE_PATH) != tinyxml2::XML_SUCCESS) {
+			return false;
+		}
+	}
+};
+
+void addNewFileIndexEntry(const char* location) {
+	tinyxml2::XMLDocument doc;
+	if (doc.LoadFile(FILE_PATH) != tinyxml2::XML_SUCCESS) {
+		createNewFileIndex();
+		return;
+	}
+
+	tinyxml2::XMLElement* root = doc.RootElement();
+	if (!root) {
+		std::cout << "No root element";
+		return;
+	}
+
+	int id = generateIndexID();
+
+	tinyxml2::XMLElement* outerElement = doc.NewElement("ReportInfo");
+	tinyxml2::XMLElement* idElement = doc.NewElement("ReportID");
+	tinyxml2::XMLElement* nameElement = doc.NewElement("ReportLocation");
+
+	idElement->SetText(id);
+	nameElement->SetText(location);
+
+	outerElement->InsertEndChild(idElement);
+	outerElement->InsertEndChild(nameElement);
+
+	if (doc.SaveFile(FILE_PATH) == tinyxml2::XML_SUCCESS) {
+	}
+	else {
 	}
 };

@@ -2,6 +2,7 @@
 #include "XmlFileIndexParser.h"
 
 #include <wx/msgdlg.h>
+#include <iostream>
 
 wxBEGIN_EVENT_TABLE(CreateReportFrame, wxFrame)
 EVT_BUTTON(wxID_ANY, CreateReportFrame::OnSubmitButtonClick)
@@ -84,6 +85,7 @@ void CreateReportFrame::OnClose(wxCloseEvent& event) {
 }
 
 void CreateReportFrame::OnSubmitButtonClick(wxCommandEvent& event) {
-	createNewFileIndexEntry();
+	wxMessageBox("success", "sccess");
+	addNewFileIndexEntry("test");
+	wxMessageBox("success2", "sccess");
 }
-

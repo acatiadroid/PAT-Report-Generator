@@ -5,8 +5,14 @@
 #include <string>
 
 int generateIndexID();
-// int indexID, std::string fileName
+
 void createNewFileIndexEntry();
+
+bool CheckFileIndexExists();
+
+void addNewFileIndexEntry(const char* location);
+
+
 
 
 #endif
