@@ -2,6 +2,7 @@
 #include "XmlFileIndexParser.h"
 
 #include <wx/msgdlg.h>
+#include <glog/logging.h>
 #include <iostream>
 
 wxBEGIN_EVENT_TABLE(CreateReportFrame, wxFrame)
@@ -10,6 +11,8 @@ wxEND_EVENT_TABLE()
 
 CreateReportFrame::CreateReportFrame(const wxString& title, const wxPoint& pos, const wxSize& size)
 	: wxFrame(nullptr, wxID_ANY, title, pos, size) {
+
+	LOG(INFO) << "Opened CreateReportFrame Window. Constructing widgets...";
 
 	lblName = new wxStaticText(this, wxID_ANY, "Name(s):");
 	txtName = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0);
@@ -78,9 +81,12 @@ CreateReportFrame::CreateReportFrame(const wxString& title, const wxPoint& pos, 
 
 	SetSizer(mainSizer);
 	Bind(wxEVT_CLOSE_WINDOW, &CreateReportFrame::OnClose, this);
+
+	LOG(INFO) << "Done creating CreateReportFrame.";
 }
 
 void CreateReportFrame::OnClose(wxCloseEvent& event) {
+	google::ShutdownGoogleLogging();
 	Destroy();
 }
 
