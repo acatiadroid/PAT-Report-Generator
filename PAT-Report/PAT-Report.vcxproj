@@ -152,7 +152,7 @@
     <ClInclude Include="CreateReportFrame.h" />
     <ClInclude Include="MainFrame.h" />
     <ClInclude Include="XmlFileIndexParser.h" />
-    <ClInclude Include="XMLProjectSettingsParser.h" />
+    <ClInclude Include="XmlProjectSettingsParser.h" />
     <ClInclude Include="XmlReportParser.h" />
   </ItemGroup>
   <ItemGroup>

@@ -62,7 +62,7 @@
     <ClInclude Include="XmlFileIndexParser.h">
       <Filter>Header Files\XmlParser</Filter>
     </ClInclude>
-    <ClInclude Include="XMLProjectSettingsParser.h">
+    <ClInclude Include="XmlProjectSettingsParser.h">
       <Filter>Header Files\XmlParser</Filter>
     </ClInclude>
   </ItemGroup>
