@@ -18,6 +18,23 @@ int generateIndexID() {
 	return dist6(rng);
 };
 
+bool checkFileIndexExists() {
+	tinyxml2::XMLDocument doc;
+
+	if (doc.LoadFile(FILE_PATH) == tinyxml2::XML_SUCCESS) {
+		return true;
+	}
+	else {
+		tinyxml2::XMLDocument doc;
+		tinyxml2::XMLElement* root = doc.NewElement("FileIndex");
+		doc.InsertFirstChild(root);
+
+		if (doc.LoadFile(FILE_PATH) != tinyxml2::XML_SUCCESS) {
+			return false;
+		}
+	}
+};
+
 void addNewFileIndexEntry(const char* location) {
 	LOG(INFO) << "Adding new file index entry";
 	tinyxml2::XMLDocument doc;

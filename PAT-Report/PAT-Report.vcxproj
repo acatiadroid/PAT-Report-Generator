@@ -111,6 +111,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(wxwin)\include\msvc;$(wxwin)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <UndefinePreprocessorDefinitions>%(UndefinePreprocessorDefinitions)</UndefinePreprocessorDefinitions>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -128,6 +129,7 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(wxwin)\include\msvc;$(wxwin)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <UndefinePreprocessorDefinitions>%(UndefinePreprocessorDefinitions)</UndefinePreprocessorDefinitions>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -142,6 +144,7 @@
     <ClCompile Include="CreateReportFrame.cpp" />
     <ClCompile Include="MainFrame.cpp" />
     <ClCompile Include="XmlFileIndexParser.cpp" />
+    <ClCompile Include="XmlProjectSettingsParser.cpp" />
     <ClCompile Include="XmlReportParser.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -149,6 +152,7 @@
     <ClInclude Include="CreateReportFrame.h" />
     <ClInclude Include="MainFrame.h" />
     <ClInclude Include="XmlFileIndexParser.h" />
+    <ClInclude Include="XMLProjectSettingsParser.h" />
     <ClInclude Include="XmlReportParser.h" />
   </ItemGroup>
   <ItemGroup>
