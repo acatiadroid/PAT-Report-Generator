@@ -45,6 +45,7 @@ void createProjectSettingsFile() {
         return;
     }
 
+    tinyxml2::XMLElement* root = doc.NewElement("ProjectSettings");
 
     tinyxml2::XMLElement* windowName = doc.NewElement("WindowName");
     tinyxml2::XMLElement* rootDirectory = doc.NewElement("RootDirectory");
