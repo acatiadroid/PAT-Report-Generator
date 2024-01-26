@@ -1,6 +1,7 @@
 #include "App.h"
 #include "MainFrame.h"
 #include "XmlFileIndexParser.h"
+#include "XmlProjectSettingsParser.h"
 
 #include <glog/logging.h>
 
@@ -10,16 +11,12 @@ bool App::OnInit() {
 	FLAGS_log_dir = "C:/Users/lukeh/Documents/c++/PAT-Report/Data/Logging";
 	google::InitGoogleLogging(argv[0]);
 
-	LOG(INFO) << "Verifying File Index exists...";
+	LOG(INFO) << "Verifying file integrity...";
 
-	if (checkFileIndexExists() == true) {
-		LOG(INFO) << "File Index exists.";
-	}
-	else {
-		LOG(INFO) << "File Index has been created.";
-	}
+	checkFileIndexExists();
+	checkProjectSettingsExists();
 
-	LOG(INFO) << "Starting app...";
+	LOG(INFO) << "Done. Starting app...";
 
 	MainFrame* frame = new MainFrame("PAT Report Generator", wxPoint(50, 50), wxSize(340, 300));
 
