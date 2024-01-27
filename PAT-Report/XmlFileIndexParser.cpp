@@ -1,4 +1,5 @@
 #include "XmlFileIndexParser.h"
+#include "XmlParserUtils.h"
 
 #include <tinyxml2.h>
 #include <glog/logging.h>
@@ -21,7 +22,7 @@ int generateIndexID() {
 bool checkFileIndexExists() {
 	tinyxml2::XMLDocument doc;
 
-	if (doc.LoadFile(FILE_PATH) == tinyxml2::XML_SUCCESS) {
+	if (doc.LoadFile(getFilePath("FileIndex")) == tinyxml2::XML_SUCCESS) {
 		return true;
 	}
 	else {
@@ -32,42 +33,41 @@ bool checkFileIndexExists() {
 		if (doc.LoadFile(FILE_PATH) != tinyxml2::XML_SUCCESS) {
 			return false;
 		}
+		
+		return true;
 	}
 };
 
-void addNewFileIndexEntry(const char* location) {
+int addNewFileIndexEntry() {
 	LOG(INFO) << "Adding new file index entry";
 	tinyxml2::XMLDocument doc;
-	if (doc.LoadFile(FILE_PATH) != tinyxml2::XML_SUCCESS) {
+
+	LOG(ERROR) << getFilePath("FileIndex");
+
+	if (doc.LoadFile(getFilePath("FileIndex")) != tinyxml2::XML_SUCCESS) {
 		LOG(ERROR) << "tinyxml couldnt load FileIndex.xml";
-		return;
+		return 0;
 	}
 
 	tinyxml2::XMLElement* root = doc.RootElement();
 	if (!root) {
 		LOG(ERROR) << "tinyxml couldnt get root XML element";
-		return;
+		return 0;
 	}
 
 	int id = generateIndexID();
 
 	tinyxml2::XMLElement* outerElement = doc.NewElement("ReportInfo");
 	tinyxml2::XMLElement* idElement = doc.NewElement("ReportID");
-	tinyxml2::XMLElement* nameElement = doc.NewElement("ReportLocation");
 
 	idElement->SetText(id);
-	nameElement->SetText(location);
 
 	outerElement->InsertEndChild(idElement);
-	outerElement->InsertEndChild(nameElement);
 
 	root->InsertEndChild(outerElement);
 
-	if (doc.SaveFile(FILE_PATH) == tinyxml2::XML_SUCCESS) {
-		LOG(INFO) << "New file index entry saved successfully.";
-	}
-	else {
-		LOG(ERROR) << "failed to save file index entry";
-	}
+	saveXMLfile(&doc, getFilePath("FileIndex"));
+
+	return id;
 
 };

@@ -1,65 +1,41 @@
 #include "XmlProjectSettingsParser.h"
+#include "XmlParserUtils.h"
 
 #include <tinyxml2.h>
 #include <glog/logging.h>
 #include <filesystem>
 #include <string>
 
-const char* getFilePath(bool workingDirectory) {
-    std::filesystem::path workingDir = std::filesystem::current_path();
-    std::filesystem::path filePath;
 
-    if (!workingDirectory) {
-        std::filesystem::path fileName = "..\\Data\\example.txt";
-        filePath = workingDir / fileName;
-    }
-    else {
-        filePath = workingDir;
-    }
 
-    std::string strPath = filePath.string();
-    const char* charPath = strPath.c_str();
-    
-    return charPath;    
-}
+//const char* getProjectSettings() {
 
-bool checkProjectSettingsExists() {
-    tinyxml2::XMLDocument doc;
-
-    if (doc.LoadFile(getFilePath(false)) == tinyxml2::XML_SUCCESS) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
+//}
 
 void createProjectSettingsFile() {
 
     tinyxml2::XMLDocument doc;
 
-    const char* fp = getFilePath(false);
-
-    if (doc.LoadFile(fp) != tinyxml2::XML_SUCCESS) {
-        LOG(ERROR) << "Error loading Project settings file: not XML_SUCCESS";
-        return;
-    }
+    const char* fp = getFilePath("ProjectSettings");
 
     tinyxml2::XMLElement* root = doc.NewElement("ProjectSettings");
 
-    tinyxml2::XMLElement* windowName = doc.NewElement("WindowName");
-    tinyxml2::XMLElement* rootDirectory = doc.NewElement("RootDirectory");
+    tinyxml2::XMLElement* fileIndex = doc.NewElement("FileIndexFile");
+    tinyxml2::XMLElement* projectSettings = doc.NewElement("ProjectSettingsFile");
 
-    windowName->SetText("Pat Report Generator");
-    rootDirectory->SetText(getFilePath(true));
+    fileIndex->SetText(getFilePath("FileIndex"));
+    projectSettings->SetText(getFilePath("ProjectSettings"));
 
-    root->InsertEndChild(windowName);
-    root->InsertEndChild(rootDirectory);
+    root->InsertEndChild(fileIndex);
+    root->InsertEndChild(projectSettings);
 
-    if (doc.SaveFile(fp) == tinyxml2::XML_SUCCESS) {
-        LOG(INFO) << "Successfully created Project Settings";
-    }
-    else {
-        LOG(ERROR) << "Failed to create Project Settings";
+    saveXMLfile(&doc, getFilePath("ProjectSettings"));
+}
+
+void checkProjectSettingsExists() {
+    tinyxml2::XMLDocument doc;
+
+    if (doc.LoadFile(getFilePath("ProjectSettings")) != tinyxml2::XML_SUCCESS) {
+        createProjectSettingsFile();
     }
 }

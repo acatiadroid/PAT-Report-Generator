@@ -1,10 +1,17 @@
-#ifndef XMLPARSER_h
-#define XMLPARSER_H
+#ifndef XMLREPORTPARSER_H
+#define XMLREPORTPARSER_H
+#define GLOG_NO_ABBREVIATED_SEVERITIES
 
 #include <tinyxml2.h>
 
-class XmlReportParser {
-	XmlParser()
-};
+void createNewReport(
+	const char* name,
+	const char* company,
+	const char* address,
+	const char* postcode,
+	const char* phone,
+	const char* email,
+	const char* date
+);
 
 #endif

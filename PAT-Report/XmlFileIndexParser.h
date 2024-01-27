@@ -9,11 +9,7 @@ int generateIndexID();
 
 bool checkFileIndexExists();
 
-void createNewFileIndexEntry();
-
-void addNewFileIndexEntry(const char* location);
-
-
+int addNewFileIndexEntry();
 
 
 #endif

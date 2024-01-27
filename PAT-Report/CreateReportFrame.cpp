@@ -1,5 +1,6 @@
 #include "CreateReportFrame.h"
 #include "XmlFileIndexParser.h"
+#include "XmlReportParser.h"
 
 #include <wx/msgdlg.h>
 #include <glog/logging.h>
@@ -91,7 +92,21 @@ void CreateReportFrame::OnClose(wxCloseEvent& event) {
 }
 
 void CreateReportFrame::OnSubmitButtonClick(wxCommandEvent& event) {
-	wxMessageBox("success", "sccess");
-	addNewFileIndexEntry("test");
-	wxMessageBox("success2", "sccess");
+	const char* name = txtName->GetValue().ToStdString().c_str();
+	const char* company = txtCompany->GetValue().ToStdString().c_str();
+	const char* address = txtAddress->GetValue().ToStdString().c_str();
+	const char* postcode = txtPostcode->GetValue().ToStdString().c_str();
+	const char* phone = txtPhone->GetValue().ToStdString().c_str();
+	const char* email = txtEmail->GetValue().ToStdString().c_str();
+	const char* date = txtDate->GetValue().ToStdString().c_str();
+
+	createNewReport(
+		name,
+		company,
+		address,
+		postcode,
+		phone,
+		email,
+		date
+	);
 }

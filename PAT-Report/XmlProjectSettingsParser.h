@@ -6,9 +6,7 @@
 #include <filesystem>
 #include <string>
 
-const char* getFilePath();
-
-bool checkProjectSettingsExists();
+void checkProjectSettingsExists();
 
 void createProjectSettingsFile();
 

@@ -146,6 +146,7 @@
     <ClCompile Include="XmlFileIndexParser.cpp" />
     <ClCompile Include="XmlProjectSettingsParser.cpp" />
     <ClCompile Include="XmlReportParser.cpp" />
+    <ClCompile Include="XmlParserUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
@@ -154,6 +155,7 @@
     <ClInclude Include="XmlFileIndexParser.h" />
     <ClInclude Include="XmlProjectSettingsParser.h" />
     <ClInclude Include="XmlReportParser.h" />
+    <ClCompile Include="XmlParserUtils.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cpp.hint" />

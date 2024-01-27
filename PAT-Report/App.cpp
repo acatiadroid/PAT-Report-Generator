@@ -12,9 +12,9 @@ bool App::OnInit() {
 	google::InitGoogleLogging(argv[0]);
 
 	LOG(INFO) << "Verifying file integrity...";
-
-	checkFileIndexExists();
+	
 	checkProjectSettingsExists();
+	checkFileIndexExists();
 
 	LOG(INFO) << "Done. Starting app...";
 

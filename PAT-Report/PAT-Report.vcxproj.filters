@@ -45,6 +45,12 @@
     <ClCompile Include="XmlProjectSettingsParser.cpp">
       <Filter>Source Files\XmlParser</Filter>
     </ClCompile>
+    <ClCompile Include="XmlParserUtils.cpp">
+      <Filter>Source Files\XmlParser</Filter>
+    </ClCompile>
+    <ClCompile Include="XmlParserUtils.h">
+      <Filter>Header Files\XmlParser</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainFrame.h">
