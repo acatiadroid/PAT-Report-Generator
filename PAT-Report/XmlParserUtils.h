@@ -3,11 +3,12 @@
 #define GLOG_NO_ABBREVIATED_SEVERITIES
 
 #include <tinyxml2.h>
+#include <string>
 
-const char* getFilePath(const char* which);
+std::string getFilePath(const char* which);
 
-const char* getReportFilePath(int reportNumber);
+std::string getReportFilePath(std::string reportNumber);
 
-bool saveXMLfile(tinyxml2::XMLDocument, const char* fp);
+bool saveXMLfile(tinyxml2::XMLDocument&, const char* fp);
 
 #endif

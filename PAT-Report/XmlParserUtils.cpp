@@ -3,8 +3,9 @@
 #include <tinyxml2.h>
 #include <glog/logging.h>
 #include <filesystem>
+#include <string>
 
-const char* getFilePath(const char* which) {
+std::string getFilePath(const char* which) {
     std::filesystem::path workingDir = std::filesystem::current_path();
     std::filesystem::path filePath;
 
@@ -21,24 +22,26 @@ const char* getFilePath(const char* which) {
     }
 
     std::string strPath = filePath.string();
-    const char* charPath = strPath.c_str();
 
-    return charPath;
+    return strPath;
 }
 
-const char* getReportFilePath(int reportNumber) {
+std::string getReportFilePath(std::string reportNumber) {
     std::filesystem::path workingDir = std::filesystem::current_path();
     std::filesystem::path filePath;
-    std::filesystem::path fileName = std::string("..\\Data\\Reports\\") + std::to_string(reportNumber) + std::string(".xml");
+    std::filesystem::path fileName = std::string("..\\Data\\Reports\\") + reportNumber + std::string(".xml");
+
+    LOG(INFO) << fileName;
+    LOG(INFO) << reportNumber;
+
     filePath = workingDir / fileName;
 
     std::string strPath = filePath.string();
-    const char* charPath = strPath.c_str();
 
-    return charPath;
+    return strPath;
 }
 
-bool saveXMLfile(tinyxml2::XMLDocument doc, const char* fp) {
+bool saveXMLfile(tinyxml2::XMLDocument& doc, const char* fp) {
     if (doc.SaveFile(fp) == tinyxml2::XML_SUCCESS) {
         LOG(INFO) << "Successfully saved XML document";
         return true;

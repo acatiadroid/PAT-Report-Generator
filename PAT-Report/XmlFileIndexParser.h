@@ -5,11 +5,11 @@
 #include <tinyxml2.h>
 #include <string>
 
-int generateIndexID();
+std::string generateIndexID();
 
 bool checkFileIndexExists();
 
-int addNewFileIndexEntry();
+std::string addNewFileIndexEntry();
 
 
 #endif

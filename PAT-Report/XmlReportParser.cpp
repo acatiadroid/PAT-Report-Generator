@@ -2,9 +2,9 @@
 #include "XmlParserUtils.h"
 #include "XmlFileIndexParser.h"
 
-#include <string>
 #include <tinyxml2.h>
 #include <glog/logging.h>
+#include <string>
 
 void createNewReport(
 	const char* name,
@@ -15,9 +15,9 @@ void createNewReport(
 	const char* email,
 	const char* date
 ) {
-	int reportID = addNewFileIndexEntry();
+	std::string reportID = addNewFileIndexEntry();
 
-	const char* fp = getReportFilePath(reportID);
+	std::string fp = getReportFilePath(reportID);
 	
 	tinyxml2::XMLDocument doc;
 
@@ -55,7 +55,9 @@ void createNewReport(
 	rootElement->InsertEndChild(dateElement);
 	rootElement->InsertEndChild(entries);
 
-	if (doc.SaveFile(fp) == tinyxml2::XML_SUCCESS) {
+	LOG(INFO) << fp;
+
+	if (doc.SaveFile(fp.c_str()) == tinyxml2::XML_SUCCESS) {
 		LOG(INFO) << "Created new XML report file.";
 	}
 	else {
