@@ -3,15 +3,18 @@
 #define GLOG_NO_ABBREVIATED_SEVERITIES
 
 #include <tinyxml2.h>
+#include <string>
+
+void createReportFile(std::string path);
 
 void createNewReport(
-	const char* name,
-	const char* company,
-	const char* address,
-	const char* postcode,
-	const char* phone,
-	const char* email,
-	const char* date
+	std::string name,
+	std::string company,
+	std::string address,
+	std::string postcode,
+	std::string phone,
+	std::string email,
+	std::string date
 );
 
 #endif

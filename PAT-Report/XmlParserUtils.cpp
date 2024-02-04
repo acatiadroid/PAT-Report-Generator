@@ -48,6 +48,7 @@ bool saveXMLfile(tinyxml2::XMLDocument& doc, const char* fp) {
     }
     else {
         LOG(ERROR) << "Failed to save XML document - check project settings file";
+        LOG(ERROR) << doc.ErrorStr();
         return false;
     }
 }

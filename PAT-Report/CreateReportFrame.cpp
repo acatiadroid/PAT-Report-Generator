@@ -92,21 +92,24 @@ void CreateReportFrame::OnClose(wxCloseEvent& event) {
 }
 
 void CreateReportFrame::OnSubmitButtonClick(wxCommandEvent& event) {
-	const char* name = txtName->GetValue().ToStdString().c_str();
-	const char* company = txtCompany->GetValue().ToStdString().c_str();
-	const char* address = txtAddress->GetValue().ToStdString().c_str();
-	const char* postcode = txtPostcode->GetValue().ToStdString().c_str();
-	const char* phone = txtPhone->GetValue().ToStdString().c_str();
-	const char* email = txtEmail->GetValue().ToStdString().c_str();
-	const char* date = txtDate->GetValue().ToStdString().c_str();
+	std::string name = txtName->GetValue().ToStdString();
+	std::string company = txtCompany->GetValue().ToStdString();
+	std::string address = txtAddress->GetValue().ToStdString();
+	std::string postcode = txtPostcode->GetValue().ToStdString();
+	std::string phone = txtPhone->GetValue().ToStdString();
+	std::string email = txtEmail->GetValue().ToStdString();
+	std::string date = txtDate->GetValue().ToStdString();
+
+	LOG(ERROR) << name;
+	LOG(ERROR) << name.c_str();
 
 	createNewReport(
-		name,
-		company,
-		address,
-		postcode,
-		phone,
-		email,
-		date
+		name.c_str(),
+		company.c_str(),
+		address.c_str(),
+		postcode.c_str(),
+		phone.c_str(),
+		email.c_str(),
+		date.c_str()
 	);
 }
