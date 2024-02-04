@@ -31,9 +31,6 @@ std::string getReportFilePath(std::string reportNumber) {
     std::filesystem::path filePath;
     std::filesystem::path fileName = std::string("..\\Data\\Reports\\") + reportNumber + std::string(".xml");
 
-    LOG(INFO) << fileName;
-    LOG(INFO) << reportNumber;
-
     filePath = workingDir / fileName;
 
     std::string strPath = filePath.string();

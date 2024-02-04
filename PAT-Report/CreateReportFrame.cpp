@@ -100,16 +100,13 @@ void CreateReportFrame::OnSubmitButtonClick(wxCommandEvent& event) {
 	std::string email = txtEmail->GetValue().ToStdString();
 	std::string date = txtDate->GetValue().ToStdString();
 
-	LOG(ERROR) << name;
-	LOG(ERROR) << name.c_str();
-
 	createNewReport(
-		name.c_str(),
-		company.c_str(),
-		address.c_str(),
-		postcode.c_str(),
-		phone.c_str(),
-		email.c_str(),
-		date.c_str()
+		name,
+		company,
+		address,
+		postcode,
+		phone,
+		email,
+		date
 	);
 }
