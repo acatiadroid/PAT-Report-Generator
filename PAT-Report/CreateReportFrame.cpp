@@ -4,7 +4,6 @@
 
 #include <wx/msgdlg.h>
 #include <glog/logging.h>
-#include <iostream>
 
 wxBEGIN_EVENT_TABLE(CreateReportFrame, wxFrame)
 EVT_BUTTON(wxID_ANY, CreateReportFrame::OnSubmitButtonClick)
@@ -38,6 +37,14 @@ CreateReportFrame::CreateReportFrame(const wxString& title, const wxPoint& pos, 
 
 	btnSubmit = new wxButton(this, wxID_ANY, "Submit");
 	btnSubmit->Bind(wxEVT_BUTTON, &CreateReportFrame::OnSubmitButtonClick, this);
+
+	txtName->Bind(wxEVT_CHAR, &CreateReportFrame::OnChar, this);
+	txtCompany->Bind(wxEVT_CHAR, &CreateReportFrame::OnChar, this);
+	txtAddress->Bind(wxEVT_CHAR, &CreateReportFrame::OnChar, this);
+	txtPostcode->Bind(wxEVT_CHAR, &CreateReportFrame::OnChar, this);
+	txtPhone->Bind(wxEVT_CHAR, &CreateReportFrame::OnChar, this);
+	txtEmail->Bind(wxEVT_CHAR, &CreateReportFrame::OnChar, this);
+	txtDate->Bind(wxEVT_CHAR, &CreateReportFrame::OnChar, this);
 
 	// Setup layouts for adding widgets to.
 	wxBoxSizer* mainSizer = new wxBoxSizer(wxVERTICAL);
@@ -89,6 +96,30 @@ CreateReportFrame::CreateReportFrame(const wxString& title, const wxPoint& pos, 
 void CreateReportFrame::OnClose(wxCloseEvent& event) {
 	google::ShutdownGoogleLogging();
 	Destroy();
+}
+
+void CreateReportFrame::OnChar(wxKeyEvent& event)
+{
+	if (event.GetKeyCode() == WXK_TAB)
+	{
+		LOG(ERROR) << "Event triggered";
+		
+		wxWindow* focusWin = wxWindow::FindFocus();
+		if (focusWin == txtName)
+			txtCompany->SetFocus();
+		else if (focusWin == txtCompany)
+			txtAddress->SetFocus();
+		else if (focusWin == txtAddress)
+			txtPostcode->SetFocus();
+		else if (focusWin == txtPostcode)
+			txtPhone->SetFocus();
+		else if (focusWin == txtPhone)
+			txtEmail->SetFocus();
+		else if (focusWin == txtEmail)
+			txtDate->SetFocus();
+		return;
+	}
+	event.Skip();
 }
 
 void CreateReportFrame::OnSubmitButtonClick(wxCommandEvent& event) {

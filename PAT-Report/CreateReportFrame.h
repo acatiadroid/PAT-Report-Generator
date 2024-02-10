@@ -10,6 +10,7 @@ public:
 	CreateReportFrame(const wxString& title, const wxPoint& pos, const wxSize& size);
 
 	void OnClose(wxCloseEvent& event);
+	void OnChar(wxKeyEvent& event);
 	void OnSubmitButtonClick(wxCommandEvent& event);
 
 private:
