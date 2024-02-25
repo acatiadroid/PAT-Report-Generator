@@ -1,4 +1,5 @@
 #include "CreateReportFrame.h"
+#include "ReportEditorFrame.h"
 #include "XmlFileIndexParser.h"
 #include "XmlReportParser.h"
 
@@ -102,7 +103,6 @@ void CreateReportFrame::OnChar(wxKeyEvent& event)
 {
 	if (event.GetKeyCode() == WXK_TAB)
 	{
-		LOG(ERROR) << "Event triggered";
 		
 		wxWindow* focusWin = wxWindow::FindFocus();
 		if (focusWin == txtName)
@@ -140,4 +140,8 @@ void CreateReportFrame::OnSubmitButtonClick(wxCommandEvent& event) {
 		email,
 		date
 	);
+
+	ReportEditorFrame* frame = new ReportEditorFrame("Report Editor", wxPoint(50, 50), wxSize(340, 400));
+	frame->Show(true);
+	this->Show(false);
 }
