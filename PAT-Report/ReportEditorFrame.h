@@ -36,6 +36,7 @@ private:
 	wxTextCtrl* txtInitials;
 	wxTextCtrl* txtNotes;
 
+	wxButton* btnSubmit;
 
 	wxDECLARE_EVENT_TABLE();
 };

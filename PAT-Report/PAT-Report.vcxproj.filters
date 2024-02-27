@@ -54,6 +54,9 @@
     <ClCompile Include="ReportEditorFrame.cpp">
       <Filter>Source Files\Interfaces</Filter>
     </ClCompile>
+    <ClCompile Include="ReportItemTableFrame.cpp">
+      <Filter>Source Files\Interfaces</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainFrame.h">
@@ -75,6 +78,9 @@
       <Filter>Header Files\XmlParser</Filter>
     </ClInclude>
     <ClInclude Include="ReportEditorFrame.h">
+      <Filter>Header Files\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="ReportItemTableFrame.h">
       <Filter>Header Files\Interfaces</Filter>
     </ClInclude>
   </ItemGroup>

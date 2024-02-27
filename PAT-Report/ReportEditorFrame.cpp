@@ -42,6 +42,9 @@ ReportEditorFrame::ReportEditorFrame(const wxString& title, const wxPoint& pos, 
 	lblNotes = new wxStaticText(this, wxID_ANY, "Notes:");
 	txtNotes = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0);
 
+	btnSubmit = new wxButton(this, wxID_ANY, "Submit");
+	btnSubmit->Bind(wxEVT_BUTTON, &ReportEditorFrame::OnSubmitButtonClick, this);
+
 	wxBoxSizer* mainSizer = new wxBoxSizer(wxVERTICAL);
 
 	wxBoxSizer* rowSizer1 = new wxBoxSizer(wxHORIZONTAL);
@@ -96,10 +99,13 @@ ReportEditorFrame::ReportEditorFrame(const wxString& title, const wxPoint& pos, 
 	mainSizer->Add(rowSizer9, 0, wxEXPAND | wxALL, 5);
 	mainSizer->Add(rowSizer10, 0, wxEXPAND | wxALL, 5);
 
+	mainSizer->Add(btnSubmit, 0, wxALIGN_CENTER | wxALL, 10);
+
 	SetSizer(mainSizer);
 	Bind(wxEVT_CLOSE_WINDOW, &ReportEditorFrame::OnClose, this);
 
 	LOG(INFO) << "Done creating ReportEditorFrame.";
+
 }
 
 void ReportEditorFrame::OnSubmitButtonClick(wxCommandEvent& event) {

@@ -144,6 +144,7 @@
     <ClCompile Include="CreateReportFrame.cpp" />
     <ClCompile Include="MainFrame.cpp" />
     <ClCompile Include="ReportEditorFrame.cpp" />
+    <ClCompile Include="ReportItemTableFrame.cpp" />
     <ClCompile Include="XmlFileIndexParser.cpp" />
     <ClCompile Include="XmlProjectSettingsParser.cpp" />
     <ClCompile Include="XmlReportParser.cpp" />
@@ -154,6 +155,7 @@
     <ClInclude Include="CreateReportFrame.h" />
     <ClInclude Include="MainFrame.h" />
     <ClInclude Include="ReportEditorFrame.h" />
+    <ClInclude Include="ReportItemTableFrame.h" />
     <ClInclude Include="XmlFileIndexParser.h" />
     <ClInclude Include="XmlProjectSettingsParser.h" />
     <ClInclude Include="XmlReportParser.h" />
