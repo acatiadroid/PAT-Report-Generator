@@ -6,8 +6,14 @@
 #include <filesystem>
 #include <string>
 
-void checkProjectSettingsExists();
+std::filesystem::path getLoggingDirPath();
+/*
+const char* getFileIndexPath();
 
-void createProjectSettingsFile();
+const char* getProjectSettingsPath();
+*/
+bool checkProjectSettingsExists(std::filesystem::path fp);
+
+bool createProjectSettingsFile();
 
 #endif

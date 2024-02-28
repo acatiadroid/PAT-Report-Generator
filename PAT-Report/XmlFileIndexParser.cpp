@@ -42,8 +42,6 @@ std::string addNewFileIndexEntry() {
 	LOG(INFO) << "Adding new file index entry";
 	tinyxml2::XMLDocument doc;
 
-	LOG(ERROR) << getFilePath("FileIndex").c_str();
-
 	if (doc.LoadFile(getFilePath("FileIndex").c_str()) != tinyxml2::XML_SUCCESS) {
 		LOG(ERROR) << "tinyxml couldnt load FileIndex.xml";
 		return "";

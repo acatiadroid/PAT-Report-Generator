@@ -1,5 +1,6 @@
 #ifndef MAINFRAME_H
 #define MAINFRAME_H
+#define GLOG_NO_ABBREVIATED_SEVERITIES
 
 #include <wx/wx.h>
 

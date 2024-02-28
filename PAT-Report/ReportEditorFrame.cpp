@@ -1,4 +1,5 @@
 #include "ReportEditorFrame.h"
+#include "ReportItemTableFrame.h"
 
 #include <wx/msgdlg.h>
 #include <glog/logging.h>
@@ -44,6 +45,17 @@ ReportEditorFrame::ReportEditorFrame(const wxString& title, const wxPoint& pos, 
 
 	btnSubmit = new wxButton(this, wxID_ANY, "Submit");
 	btnSubmit->Bind(wxEVT_BUTTON, &ReportEditorFrame::OnSubmitButtonClick, this);
+
+	txtApplianceDesc->Bind(wxEVT_CHAR, &ReportEditorFrame::OnChar, this);
+	txtLocation->Bind(wxEVT_CHAR, &ReportEditorFrame::OnChar, this);
+	txtRetestDate->Bind(wxEVT_CHAR, &ReportEditorFrame::OnChar, this);
+	txtVoltageRating->Bind(wxEVT_CHAR, &ReportEditorFrame::OnChar, this);
+	txtClass->Bind(wxEVT_CHAR, &ReportEditorFrame::OnChar, this);
+	txtVisualCheck->Bind(wxEVT_CHAR, &ReportEditorFrame::OnChar, this);
+	txtTestResults->Bind(wxEVT_CHAR, &ReportEditorFrame::OnChar, this);
+	txtContinuedUse->Bind(wxEVT_CHAR, &ReportEditorFrame::OnChar, this);
+	txtInitials->Bind(wxEVT_CHAR, &ReportEditorFrame::OnChar, this);
+	txtNotes->Bind(wxEVT_CHAR, &ReportEditorFrame::OnChar, this);
 
 	wxBoxSizer* mainSizer = new wxBoxSizer(wxVERTICAL);
 
@@ -106,6 +118,9 @@ ReportEditorFrame::ReportEditorFrame(const wxString& title, const wxPoint& pos, 
 
 	LOG(INFO) << "Done creating ReportEditorFrame.";
 
+	ReportItemTableFrame* reportItemTableFrame = new ReportItemTableFrame("Items added", wxPoint(500, 50), wxSize(600, 400));
+	reportItemTableFrame->Show(true);
+
 }
 
 void ReportEditorFrame::OnSubmitButtonClick(wxCommandEvent& event) {
@@ -131,8 +146,6 @@ void ReportEditorFrame::OnChar(wxKeyEvent& event)
 		else if (focusWin == txtRetestDate)
 			txtVoltageRating->SetFocus();
 		else if (focusWin == txtVoltageRating)
-			txtVoltageRating->SetFocus();
-		else if (focusWin == txtVoltageRating)
 			txtClass->SetFocus();
 		else if (focusWin == txtClass)
 			txtVisualCheck->SetFocus();
@@ -140,6 +153,10 @@ void ReportEditorFrame::OnChar(wxKeyEvent& event)
 			txtContinuedUse->SetFocus();
 		else if (focusWin == txtContinuedUse)
 			txtInitials->SetFocus();
+		else if (focusWin == txtInitials) {
+			txtNotes->SetFocus();
+		}
+
 		return;
 	}
 	event.Skip();

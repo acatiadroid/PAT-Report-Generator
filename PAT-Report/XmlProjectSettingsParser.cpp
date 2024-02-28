@@ -8,11 +8,30 @@
 
 
 
-//const char* getProjectSettings() {
+std::filesystem::path getLoggingDirPath() {
+    tinyxml2::XMLDocument document;
+    document.LoadFile(getFilePath("ProjectSettings").c_str());
 
-//}
+    tinyxml2::XMLElement* root = document.FirstChildElement("ProjectSettings");
+    const char* element = root->FirstChildElement("LoggingDir")->GetText();
 
-void createProjectSettingsFile() {
+    LOG(INFO) << root->FirstChildElement("LoggingDir")->GetText();
+
+    std::filesystem::path path = root->FirstChildElement("LoggingDir")->GetText();
+
+    return path;
+}
+/*
+const char* getFileIndexPath() {
+
+}
+
+const char* getProjectSettingsPath() {
+
+}*/
+
+
+bool createProjectSettingsFile() {
 
     tinyxml2::XMLDocument doc;
 
@@ -29,13 +48,23 @@ void createProjectSettingsFile() {
     root->InsertEndChild(fileIndex);
     root->InsertEndChild(projectSettings);
 
-    saveXMLfile(doc, getFilePath("ProjectSettings").c_str());
+    if (saveXMLfile(doc, getFilePath("ProjectSettings").c_str())) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
-void checkProjectSettingsExists() {
-    tinyxml2::XMLDocument doc;
+bool checkProjectSettingsExists(std::filesystem::path fp) {
+    std::filesystem::path filePath;
+    std::filesystem::path fileName = std::string("..\\Data\\ProjectSettings.xml");
 
-    if (doc.LoadFile(getFilePath("ProjectSettings").c_str()) != tinyxml2::XML_SUCCESS) {
-        createProjectSettingsFile();
+    filePath = fp / fileName;
+    
+    if (std::filesystem::exists(filePath)) {
+        return true;
     }
+    
+    return false;
 }

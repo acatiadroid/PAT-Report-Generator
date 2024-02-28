@@ -2,7 +2,6 @@
 #include "ReportEditorFrame.h"
 #include "XmlFileIndexParser.h"
 #include "XmlReportParser.h"
-#include "ReportItemTableFrame.h"
 
 #include <wx/msgdlg.h>
 #include <glog/logging.h>
@@ -141,9 +140,6 @@ void CreateReportFrame::OnSubmitButtonClick(wxCommandEvent& event) {
 		email,
 		date
 	);
-
-	ReportItemTableFrame* reportItemTableFrame = new ReportItemTableFrame("Items added", wxPoint(550, 50), wxSize(600, 400));
-	reportItemTableFrame->Show(true);
 
 	ReportEditorFrame* reportEditorFrame = new ReportEditorFrame("Report Editor", wxPoint(50, 50), wxSize(450, 525));
 	reportEditorFrame->Show(true);

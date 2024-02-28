@@ -2,6 +2,7 @@
 #include "CreateReportFrame.h"
 
 #include <wx/msgdlg.h>
+#include <glog/logging.h>
 
 wxBEGIN_EVENT_TABLE(MainFrame, wxFrame)
 EVT_BUTTON(wxID_ANY, MainFrame::OnButtonClicked)
@@ -18,6 +19,7 @@ MainFrame::MainFrame(const wxString& title, const wxPoint& pos, const wxSize& si
 
 void MainFrame::OnClose(wxCloseEvent& event) {
 	Destroy();
+	google::ShutdownGoogleLogging();
 
 }
 void MainFrame::OnButtonClicked(wxCommandEvent& event) {
