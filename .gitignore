@@ -404,3 +404,6 @@ FodyWeavers.xsd
 Data/Logging/*
 !Data/Logging/README.txt
 !Data/Logging/clearlogs.py
+
+# Generated PDF files
+*.pdf
